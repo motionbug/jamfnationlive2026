@@ -4,14 +4,14 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "sync": "mkdir -p public migrations && cp -r node_modules/@motionbug/setupmanagerhud-core/dist/. public/ && cp -r node_modules/@motionbug/setupmanagerhud-core/migrations/. migrations/",
+    "sync": "rm -rf public migrations && mkdir -p public migrations && cp -r node_modules/@motionbug/setupmanagerhud-core/dist/. public/ && cp -r node_modules/@motionbug/setupmanagerhud-core/migrations/. migrations/",
     "build": "npm run sync",
     "deploy": "wrangler d1 migrations apply DB --remote && wrangler deploy",
     "dev": "wrangler dev",
     "upgrade": "npm update @motionbug/setupmanagerhud-core && npm run sync"
   },
   "dependencies": {
-    "@motionbug/setupmanagerhud-core": "^1.2.4"
+    "@motionbug/setupmanagerhud-core": "^1.2.5"
   },
   "devDependencies": {
     "@cloudflare/workers-types": "^4.20241127.0",
